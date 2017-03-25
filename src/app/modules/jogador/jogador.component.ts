@@ -84,7 +84,7 @@ export class JogadorComponent implements OnInit {
     if (jogador.codigo) {
       this.service.pathJogador(jogador)
         .then(result => {
-          this.reloadJogador()
+          this.reloadJogadorComClube()
           this.mensagem = "Alterou!!!!";
           this.limpa();
         }).catch(error => {
@@ -94,7 +94,7 @@ export class JogadorComponent implements OnInit {
     else {
       this.service.postJogador(jogador)
         .then(result => {
-          this.reloadJogador()
+          this.reloadJogadorComClube()
           this.mensagem = "Salvou!!!!";
           this.limpa();
         }).catch(error => {
@@ -106,7 +106,7 @@ export class JogadorComponent implements OnInit {
   deletaJogador(jogador:any) {
     this.service.deleteJogador(jogador.codigo)
       .then(() => {
-        this.reloadJogador()
+        this.reloadJogadorComClube()
         this.mensagem = "Deletado com Sucesso!!!"
       })
   }
